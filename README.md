@@ -46,10 +46,11 @@ Program terminated with signal SIGSEGV, Segmentation fault.
 (gdb) 
 ```
 
-If your code is a shared library, you load it into gdb like so:
+If your code is a shared library, and it is in the current directory, you can load it into gdb like so:
 
 ```
-(gdb) sharedlibrary ./library-downloaded-from-gha.so
+(gdb) set solib-search-path .
+(gdb) sharedlibrary library-downloaded-from-gha.so
 ```
 
 ## This repository is sponsored by [Sciagraph](https://sciagraph.com), a performance observability service for Python batch jobs.
