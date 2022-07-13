@@ -40,3 +40,6 @@ Program terminated with signal SIGSEGV, Segmentation fault.
 (gdb) 
 ```
 ## This repository is sponsored by [Sciagraph](https://sciagraph.com), a performance observability service for Python batch jobs.
+
+And, yes, sometimes my code segfaults in CI.
+That's why I run tests in CI, to catch bugs in advance before they're released!
