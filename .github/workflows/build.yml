@@ -25,12 +25,21 @@ jobs:
           name: executable
           path: ./example
 
+      - name: Set cores to get stored in /cores
+        run:
+          sudo mkdir /cores
+          sudo chmod 777 /cores
+          sudo echo "/cores/%e.%p.%t" > /proc/sys/kernel/core_pattern
+          
       - name: Run the binary
         run: |
           # Allow core dumps
           ulimit -c unlimited
           # Run the program, triggering core dump
-          ./example || true
-          # Temporary debugging info
-          ls -lh
-          cat /proc/sys/kernel/core_pattern
+          ./example
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ failure() }}  # Run only if something went wrong
+        with:
+          name: cores
+          path: /cores
