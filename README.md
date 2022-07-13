@@ -2,6 +2,12 @@
 
 Sometimes your software segfaults when running tests in CI. That's great! Better it fail in CI than in production. But then you need to debug that segfault, in which case a coredump would be very helpful.
 
+Alternatives:
+
+* [SSH into your running workflow](https://mxschmitt.github.io/action-tmate/)
+
+## Getting coredumps
+
 But how do you get a coredump to your computer?
 
 In order to get coredumps you can debug, you need to:
