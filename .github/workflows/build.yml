@@ -29,7 +29,7 @@ jobs:
         run: |
           sudo mkdir /cores
           sudo chmod 777 /cores
-          sudo echo "/cores/%e.%p.%t" > /proc/sys/kernel/core_pattern
+          sudo bash -c 'echo "/cores/%e.%p.%t" > /proc/sys/kernel/core_pattern'
           
       - name: Run the binary
         run: |
