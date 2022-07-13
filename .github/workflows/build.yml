@@ -29,6 +29,7 @@ jobs:
         run: |
           sudo mkdir /cores
           sudo chmod 777 /cores
+          # Core filenames will be of the form executable.pid.timestamp:
           sudo bash -c 'echo "/cores/%e.%p.%t" > /proc/sys/kernel/core_pattern'
           
       - name: Run the binary
