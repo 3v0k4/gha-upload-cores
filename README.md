@@ -1,4 +1,4 @@
-# Upload core dumps from GitHub Actions
+# Howto: Get access to core dumps from GitHub Actions runs
 
 Sometimes your software segfaults when running tests in CI. That's great! Better it fail in CI than in production. But then you need to debug that segfault, in which case a coredump would be very helpful.
 
