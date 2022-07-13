@@ -26,7 +26,7 @@ jobs:
           path: ./example
 
       - name: Set cores to get stored in /cores
-        run:
+        run: |
           sudo mkdir /cores
           sudo chmod 777 /cores
           sudo echo "/cores/%e.%p.%t" > /proc/sys/kernel/core_pattern
