@@ -22,7 +22,7 @@ The coredumps will end up as downloadable artifacts in the results of each relev
 
 The program will have been compiled on Ubuntu (whatever version you configured in GHA), so some of the shared libraries might not be in the right location unless you use a matching Docker image.
 However, given the original executable you can at least see your own code.
-After downloading `executable.zip` and `cores.zip` from the GHA in this repository to the directory with the source code:
+After downloading `executable.zip` and `cores.zip` from the GHA artifacts to the directory with the source code:
 
 ```shell-session
 $ unzip executable.zip
@@ -39,6 +39,13 @@ Program terminated with signal SIGSEGV, Segmentation fault.
 6         string[0] = 'b';
 (gdb) 
 ```
+
+If your code is a shared library, you load it into gdb like so:
+
+```
+(gdb) sharedlibrary ./library-downloaded-from-gha.so
+```
+
 ## This repository is sponsored by [Sciagraph](https://sciagraph.com), a performance observability service for Python batch jobs.
 
 And, yes, sometimes my code segfaults in CI.
