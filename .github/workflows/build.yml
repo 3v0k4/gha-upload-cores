@@ -20,7 +20,7 @@ jobs:
         run: gcc main.c -g -o example
 
       # Upload the binary, which we will need to debug the core
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: executable
           path: ./example
@@ -39,7 +39,7 @@ jobs:
           # Run the program, triggering core dump
           ./example
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: ${{ failure() }}  # Run only if something went wrong
         with:
           name: cores
